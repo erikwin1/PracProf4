@@ -10,9 +10,12 @@ Prueba:
 
 
 Si dice que no existe:
-➡ Debes agregar PHP de XAMPP al PATH.
+➡ Debes descargar xampp
+	https://www.apachefriends.org/es/download.html
 
-setx PATH "$env:PATH;C:\xampp\php"
+agregar PHP de XAMPP al PATH.
+
+	setx PATH "$env:PATH;C:\xampp\php"
 
 
 Cerrar y abrir PowerShell de nuevo.
@@ -27,6 +30,7 @@ Verificar si está instalado:
 	composer -V
 
 Si no está, instalar desde la web
+	https://getcomposer.org/Composer-Setup.exe
 
 # 4. INSTALAR NODE.JS (NECESARIO PARA BOOTSTRAP)
 
@@ -37,6 +41,7 @@ Verificar:
 
 
 Si no está instalado descarga desde la web.
+	https://nodejs.org/dist/v25.2.1/node-v25.2.1-x64.msi
 
 # 5. CREAR EL PROYECTO LARAVEL
 
@@ -45,7 +50,7 @@ Entrar a htdocs de XAMPP:
 	cd C:\xampp\htdocs
 
 
-Crear proyecto:
+Crear proyecto ("miapp" es el nombre del proyecto, puedes cambiarlo):
 
 	composer create-project laravel/laravel miapp
 
