@@ -1,0 +1,155 @@
+# 1. ABRIR POWERSHELL COMO ADMINISTRADOR
+
+# 2. VERIFICAR PHP (XAMPP)
+
+Laravel requiere PHP 8.1+.
+
+Prueba:
+
+	php -v
+
+
+Si dice que no existe:
+➡ Debes agregar PHP de XAMPP al PATH.
+
+setx PATH "$env:PATH;C:\xampp\php"
+
+
+Cerrar y abrir PowerShell de nuevo.
+Probar:
+
+	php -v
+
+# 3. INSTALAR COMPOSER
+
+Verificar si está instalado:
+
+	composer -V
+
+Si no está, instalar desde la web
+
+# 4. INSTALAR NODE.JS (NECESARIO PARA BOOTSTRAP)
+
+Verificar:
+
+	node -v
+	npm -v
+
+
+Si no está instalado descarga desde la web.
+
+# 5. CREAR EL PROYECTO LARAVEL
+
+Entrar a htdocs de XAMPP:
+
+	cd C:\xampp\htdocs
+
+
+Crear proyecto:
+
+	composer create-project laravel/laravel miapp
+
+Entrar:
+
+	cd miapp
+
+# 6. CREAR BASE DE DATOS CON GESTORES DE BASE DE DATOS
+
+Crear DB:
+
+	CREATE DATABASE miapp_db;
+
+
+# 7. CONFIGURAR .env DESDE PROYECTO
+
+Abrir archivo:
+
+	.env
+
+
+Modificar:
+
+	DB_DATABASE=miapp_db
+	DB_USERNAME=root
+	DB_PASSWORD=
+
+
+Probar conexión:
+
+	php artisan migrate
+
+# 8. INSTALAR BOOTSTRAP (CSS COMPLETO)
+
+Instalar dependencias iniciales:
+
+	npm install
+
+
+Instalar Bootstrap:
+
+	npm install bootstrap @popperjs/core
+
+# 9. IMPORTAR BOOTSTRAP CSS EN VITE
+
+Abrir CSS:
+
+	.\resources\css\app.css
+
+
+Agregar:
+
+	@import "bootstrap/dist/css/bootstrap.css";
+
+# 10. IMPORTAR BOOTSTRAP JS
+
+Abrir:
+
+	.\resources\js\app.js
+
+
+Agregar:
+
+	import "bootstrap";
+
+# 11. COMPILAR ASSETS (BOOTSTRAP + VITE)
+
+Modo desarrollo:
+
+	npm run dev
+
+
+Modo producción:
+
+	npm run build
+
+# 12. HABILITAR VITE EN LA VISTA
+
+Abrir:
+
+	.\resources\views\welcome.blade.php
+
+Agregar dentro del <head> o antes del cierre de <body>:
+
+	@vite(['resources/css/app.css', 'resources/js/app.js'])
+
+# 13. PROBAR BOOTSTRAP
+
+Editar la vista:
+
+	.\resources\views\welcome.blade.php
+
+
+Agregar dentro del <body>:
+
+	<div class="container mt-5">
+	    <h1 class="text-primary">Bootstrap está funcionando 🎉</h1>
+	    <button class="btn btn-success">Botón Bootstrap</button>
+	</div>
+
+# 14. INICIAR EL SERVIDOR LARAVEL
+	php artisan serve
+
+
+Abrir en navegador:
+
+http://127.0.0.1:8000
