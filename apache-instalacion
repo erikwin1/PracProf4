@@ -1,0 +1,33 @@
+Descargar Apache x86 desde PowerShell
+
+Ejecuta PowerShell como Administrador y usa este comando para descargar el ZIP:
+
+  Invoke-WebRequest "https://www.apachelounge.com/download/VS17/binaries/httpd-2.4.62-win32-VS17.zip" -OutFile "apache.zip"
+
+
+2. Descomprimir Apache
+  Expand-Archive "apache.zip" -DestinationPath "C:\Apache24"
+
+3. Instalar Apache como servicio
+
+Ve a la carpeta bin:
+
+  cd C:\Apache24\bin
+
+
+Instala el servicio:
+
+  .\httpd.exe -k install
+
+
+Si da error de permisos, usa:
+
+  .\httpd.exe -k install -n "Apache24"
+
+4. Iniciar Apache
+Start-Service Apache24
+
+
+O con el ejecutable:
+
+.\httpd.exe -k start
